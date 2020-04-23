@@ -103,7 +103,7 @@ const completeTodo = (taskNumber) => {
 
 const deleteTodo = (taskNumber) => {
 	const data = get();
-	if (!argument || isNaN(argument) || data.indexOf(taskNumber) <= -1) {
+	if (!argument || isNaN(argument) || data.indexOf(taskNumber) === -1) {
 		console.log(
 			chalk.yellow(
 				`That task number doesn't exist. Please check your last command.`
@@ -111,7 +111,7 @@ const deleteTodo = (taskNumber) => {
 		);
 		console.log(chalk.inverse('If you need help type `todo help`.'));
 	} else {
-		data.splice(taskNumber, taskNumber + 1);
+		data.splice(taskNumber, 1);
 		set(data);
 		listTodos();
 	}
