@@ -39,7 +39,7 @@ const argument = process.argv[3];
 const listTodos = () => {
 	const data = get();
 	if (data.length > 0) {
-		console.log(chalk.white.bold.inverse(`Your todo list:\n`));
+		console.log(chalk.white.bold.inverse(`Your to do list:\n`));
 		data.forEach((task, index) => {
 			task.complete
 				? console.log(
