@@ -3,7 +3,7 @@
 	"bin": {
 		"todo": "./index.js"
 	},
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A CLI tool to create and keep track of your todo list.",
 	"main": "index.js",
 	"repository": "git@github.com:dillonschultz93/todo-cli.git",
