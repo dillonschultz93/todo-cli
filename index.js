@@ -103,7 +103,7 @@ const completeTodo = (taskNumber) => {
 
 const deleteTodo = (taskNumber) => {
 	const data = get();
-	if (!argument || isNaN(argument)) {
+	if (!argument || isNaN(argument) || data.indexOf(taskNumber) <= -1) {
 		console.log(
 			chalk.yellow(
 				`That task number doesn't exist. Please check your last command.`
@@ -138,10 +138,10 @@ switch (command) {
 		addTodo(argument);
 		break;
 	case 'complete':
-		completeTodo(argument - 1);
+		completeTodo(Number(argument) - 1);
 		break;
 	case 'delete':
-		deleteTodo(argument - 1);
+		deleteTodo(Number(argument) - 1);
 		break;
 	case 'help':
 		help();
