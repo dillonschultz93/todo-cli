@@ -1,8 +1,7 @@
 {
 	"name": "things-todo",
 	"bin": {
-		"todo": "./index.js",
-		"dump-data": "rm .todo-data.json"
+		"todo": "./index.js"
 	},
 	"version": "1.0.0",
 	"description": "A CLI tool to create and keep track of your todo list.",
