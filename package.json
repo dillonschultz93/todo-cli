@@ -1,5 +1,5 @@
 {
-	"name": "todo",
+	"name": "things-todo",
 	"bin": {
 		"todo": "./index.js",
 		"dump-data": "rm .todo-data.json"
