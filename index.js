@@ -39,13 +39,21 @@ const argument = process.argv[3];
 const listTodos = () => {
 	const data = get();
 	if (data.length > 0) {
-		console.log(chalk.white.bold.underline(`Your todo list:`));
+		console.log(chalk.white.bold.inverse(`Your todo list:\n`));
 		data.forEach((task, index) => {
 			task.complete
 				? console.log(
-						chalk.green.strikethrough(`${index + 1} . [✓] - ${task.task}`)
+						chalk.green(`${index + 1} . [✓] - ${task.task}
+    ${chalk.dim(
+			`Date added: ${task.dateAdded}`
+		)}\n------------------------------------------------------------`)
 				  )
-				: console.log(chalk.white(`${index + 1} . [ ] - ${task.task}`));
+				: console.log(
+						chalk.white(`${index + 1} . [ ] - ${task.task}
+    ${chalk.dim(
+			`Date added: ${task.dateAdded}`
+		)}\n------------------------------------------------------------`)
+				  );
 		});
 	} else {
 		console.log(`You don't have any tasks added to your list`);
@@ -55,6 +63,7 @@ const listTodos = () => {
 
 const addTodo = (taskName) => {
 	const data = get();
+	const date = new Date(Date.now());
 	if (!argument) {
 		console.log(
 			chalk.yellow(`No task name given. Please check your last command.`)
@@ -64,7 +73,12 @@ const addTodo = (taskName) => {
 		data.push({
 			task: taskName,
 			complete: false,
-			dateAdded: Date.now().toLocaleString(),
+			dateAdded: date.toLocaleDateString(undefined, {
+				weekday: 'long',
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+			}),
 		});
 		set(data);
 		listTodos();
@@ -73,7 +87,7 @@ const addTodo = (taskName) => {
 
 const completeTodo = (taskNumber) => {
 	const data = get();
-	if (!argument) {
+	if (!argument || isNaN(argument)) {
 		console.log(
 			chalk.yellow(
 				`That task number doesn't exist. Please check your last command.`
@@ -89,7 +103,7 @@ const completeTodo = (taskNumber) => {
 
 const deleteTodo = (taskNumber) => {
 	const data = get();
-	if (!argument) {
+	if (!argument || isNaN(argument)) {
 		console.log(
 			chalk.yellow(
 				`That task number doesn't exist. Please check your last command.`
