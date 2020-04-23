@@ -1,0 +1,17 @@
+{
+	"name": "todo",
+	"bin": {
+		"todo": "./index.js",
+		"dump-data": "rm .todo-data.json"
+	},
+	"version": "1.0.0",
+	"description": "A CLI tool to create and keep track of your todo list.",
+	"main": "index.js",
+	"repository": "git@github.com:dillonschultz93/todo-cli.git",
+	"author": "<dillonschultz93@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"chalk": "^4.0.0",
+		"inquirer": "^7.1.0"
+	}
+}
