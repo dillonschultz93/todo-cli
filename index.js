@@ -13,8 +13,9 @@
 
 const fs = require('fs');
 const chalk = require('chalk');
+const path = require('path');
 
-const DATABASE_PATH = './.todo-data.json';
+const DATABASE_PATH = path.join(__dirname, '.todo-data.json');
 
 const initialize = () => {
 	if (!fs.existsSync(DATABASE_PATH)) {
