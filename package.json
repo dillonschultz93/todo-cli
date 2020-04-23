@@ -1,12 +1,14 @@
 {
-  "name": "todo-cli",
-  "version": "1.0.0",
-  "description": "A CLI tool to create and keep track of your todo list.",
-  "main": "index.js",
-  "repository": "git@github.com:dillonschultz93/todo-cli.git",
-  "author": "<dillonschultz93@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "chalk": "^4.0.0"
-  }
+	"name": "todo",
+	"bin": "./index.js",
+	"version": "1.0.0",
+	"description": "A CLI tool to create and keep track of your todo list.",
+	"main": "index.js",
+	"repository": "git@github.com:dillonschultz93/todo-cli.git",
+	"author": "<dillonschultz93@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"chalk": "^4.0.0",
+		"inquirer": "^7.1.0"
+	}
 }
